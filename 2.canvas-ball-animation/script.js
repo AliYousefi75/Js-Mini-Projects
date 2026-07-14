@@ -67,17 +67,40 @@ class Ball{
     }
 
     update(){
-      
+      if(this.x+this.r>window.innerWidth || this.x-this.r <0){
+            this.vx = -this.vx
+        }
+        if(this.y+this.r>window.innerHeight || this.y-this.r <0){
+            this.vy = -this.vy
+        }
+        this.x += this.vx;
+        this.y += this.vy;
+        this.draw()
     }
 }
 
+let balls = []
+for(let i=0;i<100;i++){
+    balls.push(new Ball)
+}
 
 
 function animate(){
-
+    c.clearRect(0,0,window.innerWidth,window.innerHeight);
+    balls.forEach((ball)=>{
+        ball.update()
+    })
     requestAnimationFrame(animate)
 }
 animate()
+
+
+
+
+
+function randomNumb(max,min){
+    return Math.floor(Math.random()*(max-min+1)+min)
+}
 
 
 
