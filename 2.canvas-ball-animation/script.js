@@ -50,7 +50,13 @@ let c = canvas.getContext('2d');
 
 class Ball{
     constructor(){
-
+        this.color = `rgb(${randomNumb(0,255)},${randomNumb(0,255)},${randomNumb(0,255)})`
+        this.r = randomNumb(5,15);
+        this.x = randomNumb(0+this.r,window.innerWidth - this.r);
+        this.y = randomNumb(0+this.r,window.innerHeight - this.r);
+        this.vx = (Math.random() - 0.5)*6;
+        this.vy = (Math.random() - 0.5)*6;
+        this.draw()
     }
 
     draw(){
