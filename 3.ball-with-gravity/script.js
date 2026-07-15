@@ -53,13 +53,19 @@ class Ball{
 }
 
 class Canvas{
-
     constructor(){
-
+        this.balls=[]
+        for(let i=0;i<10;i++){
+            this.balls.push(new ball())
+        }
     }
 
-    animate(){
-
+    animate() {
+        c.clearRect(0, 0, window.innerWidth, window.innerHeight)
+        this.balls.forEach(ball => {
+            ball.update();
+        })
+        requestAnimationFrame(this.animate.bind(this))
     }
 
 }
