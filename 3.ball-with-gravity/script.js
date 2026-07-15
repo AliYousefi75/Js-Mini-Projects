@@ -36,7 +36,19 @@ class Ball{
     }
 
     update(){
+        if(this.y +this.r+this.dy >screen.height){
+            this.dy =-this.dy*this.friction
+            this.dx =-this.dx*this.friction
+        }else{
+            this.dy +=this.gravity
+        }
+        if(this.dx +this.r +this.dx >= screen.width || this.dx + this.r+this.dx <=0){
+            this.dx =- this.dx
+        }
+        this.y += this.dy
+        this.x += this.dx
 
+        this.draw
     }
 }
 
