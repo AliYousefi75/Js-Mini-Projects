@@ -29,7 +29,10 @@ class Ball{
     }
 
     draw(){
-
+        c.beginPath()
+        c.arc(this.x, this.y, this.r, 0, 2 * Math.PI)
+        c.fillStyle = this.rc
+        c.fill()
     }
 
     update(){
